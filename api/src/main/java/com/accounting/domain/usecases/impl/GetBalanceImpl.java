@@ -11,7 +11,7 @@ public class GetBalanceImpl implements GetBalance {
 
     private final AccountRepository accountRepository;
 
-    public GetBalanceImpl(AccountRepository accountRepository) {
+    public GetBalanceImpl(final AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
 

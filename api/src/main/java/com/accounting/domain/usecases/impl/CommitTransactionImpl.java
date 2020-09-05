@@ -12,7 +12,7 @@ public class CommitTransactionImpl implements CommitTransaction {
 
     private final AccountRepository accountRepository;
 
-    public CommitTransactionImpl(AccountRepository accountRepository) {
+    public CommitTransactionImpl(final AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
 
