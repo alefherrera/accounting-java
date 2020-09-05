@@ -58,7 +58,7 @@ curl --request POST \
   --url http://localhost:8080/transactions \
   --header 'content-type: application/json' \
   --data '{
-	"transaction_type": "credit",
+	"type": "credit",
 	"amount": 100
 }'
 ```
