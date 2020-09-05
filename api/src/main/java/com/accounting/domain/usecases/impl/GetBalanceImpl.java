@@ -1,7 +1,8 @@
-package com.accounting.domain.usecases;
+package com.accounting.domain.usecases.impl;
 
 import com.accounting.domain.account.AccountRepository;
 import com.accounting.domain.account.models.Balance;
+import com.accounting.domain.usecases.GetBalance;
 
 import java.util.Optional;
 

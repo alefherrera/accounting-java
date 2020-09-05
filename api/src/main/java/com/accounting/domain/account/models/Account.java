@@ -8,4 +8,12 @@ public class Account {
     public Collection<Transaction> getTransactions() {
         return transactions;
     }
+
+    public void commitTransaction(Transaction transaction) {
+        transactions.add(transaction);
+    }
+
+    public Balance getBalance() {
+        return new Balance(0);
+    }
 }

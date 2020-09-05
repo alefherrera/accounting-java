@@ -2,6 +2,7 @@ package com.accounting.domain.usecases;
 
 import com.accounting.domain.account.AccountRepository;
 import com.accounting.domain.account.models.Balance;
+import com.accounting.domain.usecases.impl.GetBalanceImpl;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

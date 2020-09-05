@@ -2,7 +2,10 @@ package com.accounting.domain.account;
 
 import com.accounting.domain.account.models.Account;
 
-import java.util.function.Supplier;
+public interface AccountRepository {
 
-public interface AccountRepository extends Supplier<Account> {
+    Account get();
+
+    void save(Account account);
+
 }
