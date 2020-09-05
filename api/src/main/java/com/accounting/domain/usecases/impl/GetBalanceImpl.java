@@ -4,9 +4,11 @@ import com.accounting.domain.account.AccountRepository;
 import com.accounting.domain.account.models.Account;
 import com.accounting.domain.account.models.Balance;
 import com.accounting.domain.usecases.GetBalance;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+@Component
 public class GetBalanceImpl implements GetBalance {
 
     private final AccountRepository accountRepository;
