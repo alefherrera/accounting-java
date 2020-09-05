@@ -10,7 +10,6 @@ import com.accounting.domain.account.models.TransactionType;
 import com.accounting.domain.usecases.CommitTransaction;
 
 import java.util.Optional;
-import java.util.function.Function;
 
 public class CommitTransactionImpl implements CommitTransaction {
 

@@ -2,13 +2,13 @@ package com.accounting.domain.account.models;
 
 public class Balance {
 
-    private final int amount;
+    private final double amount;
 
-    public Balance(int amount) {
+    public Balance(double amount) {
         this.amount = amount;
     }
 
-    public int getAmount() {
-        return 0;
+    public double getAmount() {
+        return amount;
     }
 }

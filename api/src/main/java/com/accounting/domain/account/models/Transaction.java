@@ -2,7 +2,7 @@ package com.accounting.domain.account.models;
 
 import java.util.UUID;
 
-public class Transaction {
+public abstract class Transaction {
 
     protected final double amount;
     private final String id;
@@ -19,4 +19,6 @@ public class Transaction {
     public String getId() {
         return id;
     }
+
+    public abstract double operate(double amount);
 }
