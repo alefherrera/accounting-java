@@ -30,10 +30,12 @@ public interface CommitTransaction extends Function<CommitTransaction.CommitTran
 
         private final String id;
         private final Balance balance;
+        private final String type;
 
-        public CommitTransactionResult(String transactionId, Balance balance) {
+        public CommitTransactionResult(String transactionId, Balance balance, String type) {
             this.id = transactionId;
             this.balance = balance;
+            this.type = type;
         }
 
         public String getId() {
@@ -42,6 +44,10 @@ public interface CommitTransaction extends Function<CommitTransaction.CommitTran
 
         public Balance getBalance() {
             return balance;
+        }
+
+        public String getType() {
+            return type;
         }
     }
 

@@ -30,7 +30,7 @@ public class CommitTransactionImpl implements CommitTransaction {
 
         accountRepository.save(account);
 
-        return new CommitTransactionResult(transaction.getId(), account.getBalance());
+        return new CommitTransactionResult(transaction.getId(), account.getBalance(), transaction.getType());
     }
 
     private Transaction getTransaction(TransactionType type, double amount) {

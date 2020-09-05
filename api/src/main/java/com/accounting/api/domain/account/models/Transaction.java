@@ -21,4 +21,6 @@ public abstract class Transaction {
     }
 
     public abstract double operate(double amount);
+
+    public abstract String getType();
 }

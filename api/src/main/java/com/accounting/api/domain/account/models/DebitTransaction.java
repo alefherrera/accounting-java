@@ -8,4 +8,9 @@ public class DebitTransaction extends Transaction {
     public double operate(double amount) {
         return amount - this.amount;
     }
+
+    @Override
+    public String getType() {
+        return "debit";
+    }
 }
