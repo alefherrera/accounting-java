@@ -1,12 +1,12 @@
-package com.accounting.domain.usecases.impl;
+package com.accounting.api.domain.usecases.impl;
 
-import com.accounting.domain.account.AccountRepository;
-import com.accounting.domain.account.exceptions.InvalidTransactionTypeException;
-import com.accounting.domain.account.exceptions.TransactionRefusedException;
-import com.accounting.domain.account.models.Account;
-import com.accounting.domain.account.models.CreditTransaction;
-import com.accounting.domain.account.models.TransactionType;
-import com.accounting.domain.usecases.CommitTransaction;
+import com.accounting.api.domain.account.AccountRepository;
+import com.accounting.api.domain.account.exceptions.InvalidTransactionTypeException;
+import com.accounting.api.domain.account.exceptions.TransactionRefusedException;
+import com.accounting.api.domain.account.models.Account;
+import com.accounting.api.domain.account.models.CreditTransaction;
+import com.accounting.api.domain.account.models.TransactionType;
+import com.accounting.api.domain.usecases.CommitTransaction;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;

@@ -1,13 +1,15 @@
-package com.accounting.domain.usecases.impl;
+package com.accounting.api.domain.usecases.impl;
 
-import com.accounting.domain.account.AccountRepository;
-import com.accounting.domain.account.models.Account;
-import com.accounting.domain.account.models.Transaction;
-import com.accounting.domain.usecases.GetTransactions;
+import com.accounting.api.domain.account.AccountRepository;
+import com.accounting.api.domain.account.models.Account;
+import com.accounting.api.domain.account.models.Transaction;
+import com.accounting.api.domain.usecases.GetTransactions;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.Collections;
 
+@Component
 public class GetTransactionsImpl implements GetTransactions {
 
     private final AccountRepository accountRepository;

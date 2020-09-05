@@ -1,13 +1,15 @@
-package com.accounting.domain.usecases.impl;
+package com.accounting.api.domain.usecases.impl;
 
-import com.accounting.domain.account.AccountRepository;
-import com.accounting.domain.account.exceptions.InvalidTransactionTypeException;
-import com.accounting.domain.account.models.*;
-import com.accounting.domain.usecases.CommitTransaction;
+import com.accounting.api.domain.account.AccountRepository;
+import com.accounting.api.domain.account.exceptions.InvalidTransactionTypeException;
+import com.accounting.api.domain.account.models.*;
+import com.accounting.api.domain.usecases.CommitTransaction;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 import java.util.Optional;
 
+@Component
 public class CommitTransactionImpl implements CommitTransaction {
 
     private final AccountRepository accountRepository;

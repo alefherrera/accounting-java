@@ -1,4 +1,4 @@
-package com.accounting.domain.account.models;
+package com.accounting.api.domain.account.models;
 
 public class Balance {
 

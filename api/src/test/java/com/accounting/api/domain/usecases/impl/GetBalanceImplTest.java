@@ -1,8 +1,8 @@
-package com.accounting.domain.usecases.impl;
+package com.accounting.api.domain.usecases.impl;
 
-import com.accounting.domain.account.AccountRepository;
-import com.accounting.domain.account.models.Account;
-import com.accounting.domain.account.models.Balance;
+import com.accounting.api.domain.account.AccountRepository;
+import com.accounting.api.domain.account.models.Account;
+import com.accounting.api.domain.account.models.Balance;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;

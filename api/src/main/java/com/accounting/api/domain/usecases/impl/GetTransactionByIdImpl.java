@@ -1,11 +1,13 @@
-package com.accounting.domain.usecases.impl;
+package com.accounting.api.domain.usecases.impl;
 
-import com.accounting.domain.account.AccountRepository;
-import com.accounting.domain.account.models.Transaction;
-import com.accounting.domain.usecases.GetTransactionById;
+import com.accounting.api.domain.account.AccountRepository;
+import com.accounting.api.domain.account.models.Transaction;
+import com.accounting.api.domain.usecases.GetTransactionById;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+@Component
 public class GetTransactionByIdImpl implements GetTransactionById {
 
     private final AccountRepository accountRepository;

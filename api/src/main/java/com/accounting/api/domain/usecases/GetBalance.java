@@ -1,6 +1,6 @@
-package com.accounting.domain.usecases;
+package com.accounting.api.domain.usecases;
 
-import com.accounting.domain.account.models.Balance;
+import com.accounting.api.domain.account.models.Balance;
 
 import java.util.Optional;
 import java.util.function.Supplier;

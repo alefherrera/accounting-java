@@ -1,6 +1,6 @@
-package com.accounting.domain.account;
+package com.accounting.api.domain.account;
 
-import com.accounting.domain.account.models.Account;
+import com.accounting.api.domain.account.models.Account;
 
 import java.util.Optional;
 

@@ -1,6 +1,6 @@
-package com.accounting.domain.usecases;
+package com.accounting.api.domain.usecases;
 
-import com.accounting.domain.account.models.Transaction;
+import com.accounting.api.domain.account.models.Transaction;
 
 import java.util.Collection;
 import java.util.function.Supplier;

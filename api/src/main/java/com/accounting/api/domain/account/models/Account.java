@@ -1,6 +1,6 @@
-package com.accounting.domain.account.models;
+package com.accounting.api.domain.account.models;
 
-import com.accounting.domain.account.exceptions.TransactionRefusedException;
+import com.accounting.api.domain.account.exceptions.TransactionRefusedException;
 
 import java.util.ArrayList;
 import java.util.Collection;
