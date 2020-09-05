@@ -3,6 +3,8 @@ package com.accounting.domain.usecases;
 import com.accounting.domain.account.AccountRepository;
 import com.accounting.domain.account.models.Balance;
 
+import java.util.Optional;
+
 public class GetBalanceImpl implements GetBalance {
 
     private final AccountRepository accountRepository;
@@ -11,7 +13,7 @@ public class GetBalanceImpl implements GetBalance {
         this.accountRepository = accountRepository;
     }
 
-    public Balance get() {
-        return new Balance(0);
+    public Optional<Balance> get() {
+        return Optional.of(new Balance(0));
     }
 }

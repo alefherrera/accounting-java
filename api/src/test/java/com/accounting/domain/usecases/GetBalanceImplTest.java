@@ -16,7 +16,7 @@ class GetBalanceImplTest {
 
         GetBalanceImpl getBalance = new GetBalanceImpl(accountRepository);
 
-        Balance balance = getBalance.get();
+        Balance balance = getBalance.get().orElseThrow();
 
         assertEquals(0, balance.getAmount());
 
