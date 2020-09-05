@@ -1,8 +1,10 @@
 package com.accounting.api;
 
+import com.accounting.api.domain.usecases.GetTransactions;
 import com.accounting.api.handlers.CommitTransactionHandler;
 import com.accounting.api.handlers.GetBalanceHandler;
 import com.accounting.api.handlers.GetTransactionByIdHandler;
+import com.accounting.api.handlers.GetTransactionsHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RequestPredicates;
@@ -24,8 +26,8 @@ public class Router {
     }
 
     @Bean
-    public RouterFunction<ServerResponse> getTransactions(CommitTransactionHandler commitTransactionHandler) {
-        return RouterFunctions.route(RequestPredicates.GET("/transactions"), commitTransactionHandler::execute);
+    public RouterFunction<ServerResponse> getTransactions(GetTransactionsHandler getTransactionsHandler) {
+        return RouterFunctions.route(RequestPredicates.GET("/transactions"), getTransactionsHandler::execute);
     }
 
     @Bean

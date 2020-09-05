@@ -28,16 +28,16 @@ public interface CommitTransaction extends Function<CommitTransaction.CommitTran
 
     class CommitTransactionResult {
 
-        private final String transactionId;
+        private final String id;
         private final Balance balance;
 
         public CommitTransactionResult(String transactionId, Balance balance) {
-            this.transactionId = transactionId;
+            this.id = transactionId;
             this.balance = balance;
         }
 
-        public String getTransactionId() {
-            return transactionId;
+        public String getId() {
+            return id;
         }
 
         public Balance getBalance() {

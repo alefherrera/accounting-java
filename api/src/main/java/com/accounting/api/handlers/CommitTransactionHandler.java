@@ -18,7 +18,11 @@ public class CommitTransactionHandler {
     }
 
     public Mono<ServerResponse> execute(ServerRequest request) {
-        CommitTransaction.CommitTransactionModel model = request.bodyToMono(CommitTransaction.CommitTransactionModel.class).block();
+        Mono<CommitTransaction.CommitTransactionModel> model = request.bodyToMono(CommitTransaction.CommitTransactionModel.class);
+        return model.flatMap(this::getResponse);
+    }
+
+    private Mono<ServerResponse> getResponse(CommitTransaction.CommitTransactionModel model) {
         return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(BodyInserters.fromValue(commitTransaction.apply(model)));
     }
 

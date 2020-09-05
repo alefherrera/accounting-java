@@ -18,7 +18,8 @@ public class GetTransactionByIdHandler {
     }
 
     public Mono<ServerResponse> execute(ServerRequest request) {
-        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(BodyInserters.fromValue(getTransactionById.apply("")));
+        String id = request.pathVariable("id");
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(BodyInserters.fromValue(getTransactionById.apply(id)));
     }
 
 }
