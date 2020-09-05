@@ -1,6 +1,7 @@
 package com.accounting.domain.usecases.impl;
 
 import com.accounting.domain.account.AccountRepository;
+import com.accounting.domain.account.models.Account;
 import com.accounting.domain.account.models.Balance;
 import com.accounting.domain.usecases.GetBalance;
 
@@ -15,6 +16,7 @@ public class GetBalanceImpl implements GetBalance {
     }
 
     public Optional<Balance> get() {
-        return Optional.of(new Balance(0));
+        Optional<Account> optionalAccount = accountRepository.get();
+        return optionalAccount.map(Account::getBalance);
     }
 }

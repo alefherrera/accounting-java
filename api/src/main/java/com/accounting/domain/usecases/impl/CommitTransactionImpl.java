@@ -2,13 +2,10 @@ package com.accounting.domain.usecases.impl;
 
 import com.accounting.domain.account.AccountRepository;
 import com.accounting.domain.account.exceptions.InvalidTransactionTypeException;
-import com.accounting.domain.account.models.Account;
-import com.accounting.domain.account.models.CreditTransaction;
-import com.accounting.domain.account.models.DebitTransaction;
-import com.accounting.domain.account.models.Transaction;
-import com.accounting.domain.account.models.TransactionType;
+import com.accounting.domain.account.models.*;
 import com.accounting.domain.usecases.CommitTransaction;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class CommitTransactionImpl implements CommitTransaction {
@@ -35,6 +32,9 @@ public class CommitTransactionImpl implements CommitTransaction {
     }
 
     private Transaction getTransaction(TransactionType type, double amount) {
+        if (Objects.isNull(type)) {
+            throw new InvalidTransactionTypeException();
+        }
         switch (type) {
             case CREDIT -> {
                 return new CreditTransaction(amount);
@@ -42,7 +42,7 @@ public class CommitTransactionImpl implements CommitTransaction {
             case DEBIT -> {
                 return new DebitTransaction(amount);
             }
+            default -> throw new InvalidTransactionTypeException();
         }
-        throw new InvalidTransactionTypeException();
     }
 }
