@@ -1,31 +1,49 @@
 package com.accounting.domain.usecases.impl;
 
 import com.accounting.domain.account.AccountRepository;
-import com.accounting.domain.account.factories.TransactionFactory;
+import com.accounting.domain.account.exceptions.InvalidTransactionTypeException;
 import com.accounting.domain.account.models.Account;
+import com.accounting.domain.account.models.CreditTransaction;
+import com.accounting.domain.account.models.DebitTransaction;
 import com.accounting.domain.account.models.Transaction;
+import com.accounting.domain.account.models.TransactionType;
 import com.accounting.domain.usecases.CommitTransaction;
+
+import java.util.Optional;
+import java.util.function.Function;
 
 public class CommitTransactionImpl implements CommitTransaction {
 
     private final AccountRepository accountRepository;
-    private final TransactionFactory transactionFactory;
 
-    public CommitTransactionImpl(AccountRepository accountRepository, TransactionFactory transactionFactory) {
+    public CommitTransactionImpl(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
-        this.transactionFactory = transactionFactory;
     }
 
-    public CommitTransactionResult apply(CommitTransactionModel model) {
+    public Optional<CommitTransactionResult> apply(CommitTransactionModel model) {
+        Optional<Account> optionalAccount = accountRepository.get();
+        return optionalAccount.map(account -> getResult(account, model));
+    }
 
-        Account account = accountRepository.get();
-
-        Transaction transaction = transactionFactory.apply(model.getType(), model.getAmount());
+    private CommitTransactionResult getResult(Account account, CommitTransactionModel model) {
+        Transaction transaction = getTransaction(model.getType(), model.getAmount());
 
         account.commitTransaction(transaction);
 
         accountRepository.save(account);
 
         return new CommitTransactionResult(transaction.getId(), account.getBalance());
+    }
+
+    private Transaction getTransaction(TransactionType type, double amount) {
+        switch (type) {
+            case CREDIT -> {
+                return new CreditTransaction(amount);
+            }
+            case DEBIT -> {
+                return new DebitTransaction(amount);
+            }
+        }
+        throw new InvalidTransactionTypeException();
     }
 }

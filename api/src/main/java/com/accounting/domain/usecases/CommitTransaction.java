@@ -3,9 +3,10 @@ package com.accounting.domain.usecases;
 import com.accounting.domain.account.models.Balance;
 import com.accounting.domain.account.models.TransactionType;
 
+import java.util.Optional;
 import java.util.function.Function;
 
-public interface CommitTransaction extends Function<CommitTransaction.CommitTransactionModel, CommitTransaction.CommitTransactionResult> {
+public interface CommitTransaction extends Function<CommitTransaction.CommitTransactionModel, Optional<CommitTransaction.CommitTransactionResult>> {
 
     class CommitTransactionModel {
         private final TransactionType type;
