@@ -8,14 +8,12 @@ import Api from "../api";
 function TransactionForm() {
   const [type, setType] = useState("credit");
   const [amount, setAmount] = useState("");
-  const [balance, setBalance] = useState(0);
-  const [transactions, setTransactions] = useState([]);
+  const [data, setData] = useState({ balance: 0, transactions: [] });
 
   function handleSubmit(event) {
     event.preventDefault();
-    Api.commitTransaction({ type, amount }).then((result) => {
-      setBalance(result.amount);
-      return updateTransactions();
+    return Api.commitTransaction({ type, amount }).then(() => {
+      return updateData();
     });
   }
 
@@ -27,21 +25,24 @@ function TransactionForm() {
     setType(value);
   }
 
-  function updateTransactions() {
-    return Api.getTransactions().then((result) =>
-      setTransactions(result || [])
+  function updateData() {
+    return Promise.all([
+      Api.getBalance(),
+      Api.getTransactions(),
+    ]).then(([balance, transactions]) =>
+      setData({ balance: balance.amount, transactions })
     );
   }
 
   useEffect(() => {
-    Api.getBalance().then((result) => setBalance(result.amount));
+    updateData();
   });
 
   return (
     <div>
       <div>
         <h1>Balance</h1>
-        <h2>$ {balance}</h2>
+        <h2>$ {data.balance}</h2>
       </div>
       <div>
         <form className="form" onSubmit={handleSubmit}>
@@ -60,7 +61,7 @@ function TransactionForm() {
         </form>
       </div>
       <div>
-        <TransactionList transactions={transactions} />
+        <TransactionList transactions={data.transactions} />
       </div>
     </div>
   );

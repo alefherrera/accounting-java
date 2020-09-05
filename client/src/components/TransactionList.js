@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Api from "../api";
+import React from "react";
 
 function getClassName(type) {
   return type;

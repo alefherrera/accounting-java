@@ -26,7 +26,7 @@ function getTransactions() {
 const Api = {
   getBalance,
   commitTransaction,
-  getTransactions,
+  getTransactionById,
   getTransactions,
 };
 
