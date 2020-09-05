@@ -12,6 +12,6 @@ public class GetBalanceImpl implements GetBalance {
     }
 
     public Balance get() {
-        return null;
+        return new Balance(0);
     }
 }
